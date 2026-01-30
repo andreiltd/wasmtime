@@ -236,6 +236,9 @@ fn parse_source(
         pkgs.push(resolve.push_group(UnresolvedPackageGroup::parse("macro-input", inline)?)?);
     }
 
+    // Sort files for deterministic code generation
+    files.sort();
+
     Ok((resolve, pkgs, files))
 }
 
